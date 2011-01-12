@@ -1,0 +1,13 @@
+TODO
+
+1. single jsoncallback function for ajax requests
+	1.1 Functions
+		getAllEntries
+		getLatestEntry
+		getEntryNumber (sense or non-sense?)
+		newEntry
+		getPin
+		setPin
+2. views for html, mobile html and wap browsers
+3. clickable entries
+4. clean css ans js for a modern look
