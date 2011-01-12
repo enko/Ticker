@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.forms.models import modelformset_factory
-from wapticker.frontend.models import *
+from Ticker.frontend.models import *
 from datetime import datetime
 from django.core import serializers
 from django.utils.html import escape
