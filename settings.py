@@ -6,6 +6,8 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+PATH = os.getcwd()
+
 ADMINS = (
     ('Louis Miller', 'louis@blacksec.org'),
 )
@@ -13,7 +15,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = os.getcwd()+'/ticker.db' # Or path to database file if using sqlite3.
+DATABASE_NAME = PATH+'/ticker.db' # Or path to database file if using sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -34,7 +36,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.getcwd() + '/media/'
+MEDIA_ROOT = PATH + '/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -68,7 +70,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.getcwd()+'/templates/'
+    PATH+'/templates/'
 )
 
 INSTALLED_APPS = (
