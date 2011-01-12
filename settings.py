@@ -9,7 +9,7 @@ TEMPLATE_DEBUG = DEBUG
 PATH = os.getcwd()
 
 ADMINS = (
-    ('Louis Miller', 'louis@blacksec.org'),
+    ('', ''),
 )
 
 MANAGERS = ADMINS
@@ -49,7 +49,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '!ecd$(kni)+o59&n5&1h$jwn@yp1wln-jc_dk9#@#wem9&_3&#'
+SECRET_KEY = ''
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
