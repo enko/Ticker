@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>Neue Meldungen</h1>
+<form action="." method="post">
+{{ form.text }}
+<br />
+{{ form.isPublic }}
+<label>Öffentlich</label>
+<br />
+<input type="submit" name="submit" value="Senden" />
+</form>
+{% endblock %}

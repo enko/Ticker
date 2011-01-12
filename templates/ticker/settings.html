@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Demoticker Management{% endblock %}
+
+
+{% block content %}
+
+<h1>Demoticker Management</h1>
+
+{% if entries %}
+<form action="" method="post">
+	{% for entry in entries %}
+		<div id="entry" class="entry-{{ entry.id }}">
+			<input type="checkbox" name="entry" value="{{ entry.id }}" />
+			{{ entry.text }}
+			<div class="date">published on {{ entry.published|date:"d.m.Y, H:i \U\h\r" }}</div>
+		</div>
+	{% endfor %}
+<input type="submit" name="submitDeleteEntries" value="Ausgewählte Einträge löschen" />
+</form>
+{% endif %}
+
+{% if pin %}
+<form action="" method="post">
+	<input type="text" name="pin" id="pin" value="{{ pin.value }}" />
+	<input type="submit" name="submitNewPin" value="Pin ändern" />
+</form>
+{% endif %}
+
+{% endblock %}

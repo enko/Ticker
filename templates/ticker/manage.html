@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Demoticker Management{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="../media/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../media/js/common.js"></script>
+<script type="text/javascript">
+	$().ready(function() {
+		getEntries();
+		setCounter({{ entries|length }});
+		
+		$('#newEntry').click(function() {
+			$('#newEntry').each(function() {
+				var length = 140 - $(this).val().length;
+				$('.charCounter').html(length);
+				$(this).keyup(function() {
+					var new_length = 140 - $(this).val().length;
+					$('.charCounter').html(new_length);
+				});
+			});
+		});
+	});
+</script>
+{% endblock %} 
+
+{% block content %}
+<div id="manage">
+	<h1>Demoticker Management</h1>
+	<div id="left">
+		<div class="left-box">
+			<h2>Eintrag schreiben</h2>
+			<div class="input-box box">
+				<input tabindex="1" accesskey="e" onblur="if (this.value == '') {this.value = 'Neue Meldung schreiben...';}" onfocus="if (this.value == 'Neue Meldung schreiben...') {this.value = '';}" type="text" id="newEntry" value="Neue Meldung schreiben..." /><input tabindex="3" accesskey="s"type="button" id="submitEntry" value="Senden" onClick="submitNewEntry()" />
+				<br />
+				<input tabindex="2" accesskey="p"type="checkbox" name="isPublic" id="isPublic" /><label for="isPublic">Öffentlicher Eintrag</label>
+				<span class="charCounter"></span>
+			</div>
+		</div>
+		
+		<div class="left-box">
+			<h2>Einträge verwalten</h2>
+			<div class="entries-box box"></div>
+		</div>
+	</div>
+	<div id="right">
+	<span class="entry-counter-box"></span>
+	
+	<div class="right-box">
+		<h2>Token ändern</h2>
+		<div class="token-box box">
+			{% if pin %}
+			<input tabindex="4" accesskey="" type="text" name="newPin" id="newPin" value="{{ pin.value }}" /><input tabindex="5" accesskey="" type="button" name="submitNewPin" id="submitNewPin" value="Pin ändern" onClick="submitNewPin()" />
+			{% endif %}
+		</div>
+	</div>
+	<div class="right-box">
+		<h2>Tastaturkürzel</h2>
+		<div class="shortcut-box box">
+			<ul>
+				<li class="listHead">Einträge</li>
+				<ul class="subList">
+					<li>strg + e - Eingabefeld für die Nachricht</li>
+					<li>strg + p - Mit der Leertaste wird die Nachricht als öffentlich gekennzeichnet</li>
+					<li>strg + s - Senden der Nachricht</li>
+				</ul>
+				<li class="listHead">Token</li>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="right-box">
+		<h2>Meta</h2>
+		<div class="meta-box box">
+			<a href="../accounts/logout">Abmelden</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+{% if entry %}
+	<a href="/{{ entry.id }}/detail/">
+		<div id="entry">
+			{{ entry.text }}
+			<div class="date">published on {{ entry.published|date:"d.m.Y, H:i \U\h\r" }}</div>
+			<span class="delete"><a href="/{{ entry.id }}/delete/">Löschen</a></span>
+		</div>
+{% else %}
+	<p>Unter dieser ID ist keine Meldung zu finden</p>
+{% endif %}
+{% endblock %}

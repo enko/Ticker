@@ -1,0 +1,207 @@
+* { 
+	padding:0; 
+	margin:0; 
+	border:0;
+}	
+
+body { 
+	background: url('../media/img/pattern_100.gif') #484534;
+	padding: 10px; 
+	font: 14px/20px 'Arial';
+	color: #EEEEEE;
+}
+
+div {
+	position: relative;
+}
+
+a { 
+	color: #908342; 
+	text-decoration: none; 
+}
+
+h1 {
+	font: 28px/36px 'Arial';
+	margin: 20px 0;
+	border-bottom: 2px solid #fff;
+}
+
+h2 {
+	width: 99%;
+	font: 20px/25px 'Arial';
+	margin: 3px 0;
+	border-bottom: 1px solid #C7BE8C;
+	color: #C7BE8C
+}
+
+#main { 
+	width: 300px; 
+	margin: 0 auto; 
+}
+
+#manage {
+	background: rgba(102, 75, 50, 0.5);
+	padding: 20px;
+	margin: 20px;
+	width: 840px;
+	float: left;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#left {
+	width: 450px;
+	float: left;
+}
+
+#right {
+	float: right;
+	width: 320px;
+}
+
+.box {
+	margin: 10px 0;
+}
+
+#newEntry, #submitEntry, #newPin, #submitNewPin {
+	background: rgba(60, 40, 25, 0.5);
+	padding: 5px;
+	font: 12px/15px 'Arial';
+	color: #ffffff;
+}
+
+#newEntry {
+	width: 380px;
+	margin: 4px 0 8px;
+	border: 1px solid #000;
+	border-radius: 6px 0px 0px 6px;
+	-moz-border-radius: 6px 0px 0px 6px;
+	-webkit-border-radius: 6px 0px 0px 6px;
+}
+
+#submitEntry {
+	border: 1px solid #000;
+	border-left: 0;
+	border-radius: 0px 6px 6px 0px;
+	-moz-border-radius: 0px 6px 6px 0px;
+	-webkit-border-radius: 0px 6px 6px 0px;
+}
+
+#isPublic {
+	margin: 0px 4px 0px 0px;
+}
+
+.charCounter {
+	position: absolute;
+	right: 0;
+}
+
+.entry-box {
+	background: #3c2819;
+	color: #fff;
+	padding: 0px; 
+	margin-bottom: 1px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow: 1px 1px 4px #000;
+	-moz-box-shadow: 1px 1px 4px #000;
+	-webkit-box-shadow: 1px 1px 4px #000;
+}
+
+.entry-text {
+	padding: 10px 15px 10px 10px;
+}
+
+.deleteButton {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.entry-status {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font: 10px/14px 'Arial';
+	padding: 5px 5px 5px 10px;
+}
+
+.entry-date {
+	display: block;
+	text-align: right;
+	font: 10px/14px 'Arial';
+	padding: 5px 5px 5px 0;
+}
+
+.pagination {
+	margin: 5px 0;
+}
+
+.pagination a {
+	color: #EEEEEE;
+}
+
+.bottomRight {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	}
+	
+.publishImage {
+	width: 12px;
+	height: 12px;
+}
+
+.entry-counter-box {
+ padding: 10px;
+ margin: 0px 0px 20px 0px;
+ display: block;
+ text-align: center;
+ background: #2B2400;
+ border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ /* Text */
+ font-style: italic;
+ text-shadow: -1px 1px 1px #454545;
+}
+
+.entry-counter {
+ font: 16px/20px 'Arial';
+ font-style: normal;
+}
+
+#newPin {
+	width: 100px;
+	margin: 4px 0 8px;
+	border: 1px solid #000;
+	border-radius: 6px 0px 0px 6px;
+	-moz-border-radius: 6px 0px 0px 6px;
+	-webkit-border-radius: 6px 0px 0px 6px;
+}
+
+#submitNewPin {
+	border: 1px solid #000;
+	border-left: 0;
+	border-radius: 0px 6px 6px 0px;
+	-moz-border-radius: 0px 6px 6px 0px;
+	-webkit-border-radius: 0px 6px 6px 0px;	
+}
+
+.right-box, .left-box {
+	margin: 20px 0;	
+}
+
+.right-box ul {
+	list-style: none inside;
+}
+
+.right-box li.listHead {
+	margin: 4px 0;
+}
+
+.right-box ul.subList {
+	margin-left: 20px;	
+}

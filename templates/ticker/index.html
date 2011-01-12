@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>Letzten Meldungen</h1>
+{% if entries %}
+	{% for entry in entries.object_list %}
+		<div id="entry" class="entry-{{ entry.id }}">
+			{{ entry.text }}
+			<img src="/media/img/clock.png" class="bottomRight publishImage" title="Geschrieben am {{ entry.published|date:"d.m.Y, H:i \U\h\r" }}" />
+		</div>
+	{% endfor %}
+<div class="pagination">
+        {% if entries.has_previous %}
+            <a href="?page={{ entries.previous_page_number }}">Aktuellere Meldungen</a>
+        {% endif %}
+
+        {% if entries.has_next %}
+            <a href="?page={{ entries.next_page_number }}">Ältere Meldungen</a>
+        {% endif %}
+</div>
+{% else %}
+	<p>Keine Meldungen vorhanden</p>
+{% endif %}
+{% endblock %}
