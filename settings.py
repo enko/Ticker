@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 PATH = '/data/louis/code/Ticker'
 
 ADMINS = (
-    ('Louis Miller', 'louis@blacksec.org'),
+    ('', ''),
 )
 
 MANAGERS = ADMINS
