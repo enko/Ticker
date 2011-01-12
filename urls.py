@@ -7,12 +7,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^wapticker/', include('wapticker.foo.urls')),
-	(r'^$', 'wapticker.frontend.views.index'),
-	(r'^(?P<pin>\d+)/$', 'wapticker.frontend.views.intern'),
-	(r'^manage/$', 'wapticker.frontend.views.manage'),
-	(r'^accounts/login/$', 'wapticker.frontend.views.login'),
-	(r'^accounts/logout/$', 'wapticker.frontend.views.logout'),
+    # (r'^Ticker/', include('Ticker.foo.urls')),
+	(r'^$', 'Ticker.frontend.views.index'),
+	(r'^(?P<pin>\d+)/$', 'Ticker.frontend.views.intern'),
+	(r'^manage/$', 'Ticker.frontend.views.manage'),
+	(r'^accounts/login/$', 'Ticker.frontend.views.login'),
+	(r'^accounts/logout/$', 'Ticker.frontend.views.logout'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

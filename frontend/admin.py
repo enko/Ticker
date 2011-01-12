@@ -1,4 +1,4 @@
-from wapticker.frontend.models import Entry
+from Ticker.frontend.models import Entry
 from django.contrib import admin
 
 #class EntryAdmin(admin.ModelAdmin):
