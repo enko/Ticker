@@ -1,12 +1,10 @@
 # coding=utf-8
 # Django settings for wapticker project.
 
-import os
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PATH = os.getcwd()
+PATH = '/data/louis/code/Ticker'
 
 ADMINS = (
     ('Louis Miller', 'louis@blacksec.org'),
@@ -15,7 +13,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = PATH+'/ticker.db' # Or path to database file if using sqlite3.
+DATABASE_NAME = PATH + '/ticker.db' # Or path to database file if using sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -49,7 +47,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '!ecd$(kni)+o59&n5&1h$jwn@yp1wln-jc_dk9#@#wem9&_3&#'
+SECRET_KEY = ''
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
