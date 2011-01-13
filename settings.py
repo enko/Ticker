@@ -1,10 +1,12 @@
 # coding=utf-8
 # Django settings for wapticker project.
 
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PATH = '/data/louis/code/Ticker'
+PATH = os.path.dirname(__file__)
 
 ADMINS = (
     ('', ''),
