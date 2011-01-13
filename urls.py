@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^Ticker/', include('Ticker.foo.urls')),
 	(r'^$', 'Ticker.frontend.views.index'),
-	(r'^(?P<pin>\d+)/$', 'Ticker.frontend.views.intern'),
+	(r'^(?P<pin>\d+)/$', 'Ticker.frontend.views.index'),
 	(r'^manage/$', 'Ticker.frontend.views.manage'),
 	(r'^accounts/login/$', 'Ticker.frontend.views.login'),
 	(r'^accounts/logout/$', 'Ticker.frontend.views.logout'),
