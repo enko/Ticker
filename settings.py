@@ -6,7 +6,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PATH = os.getcwd()
+PATH = os.path.dirname(__file__)
 
 ADMINS = (
     ('', ''),
@@ -15,7 +15,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = PATH+'/ticker.db' # Or path to database file if using sqlite3.
+DATABASE_NAME = PATH + '/ticker.db' # Or path to database file if using sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
