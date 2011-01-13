@@ -14,12 +14,15 @@ from django.core import serializers
 from django.utils.html import escape
 
 
-def index(request):
-	# initial 
-	entries = Entry.objects.filter(isPublic=1).order_by('-published')
+def index(request, pin=None):
+	if pin == None:
+		entries = Entry.objects.filter(isPublic=1).order_by('-published')
+	elif pin == Config.objects.get(key='pin').value: 
+		entries = Entry.objects.all().order_by('-published')
+	elif pin != Config.objects.get(key='pin').value:
+		return redirect(index)
+		
 	paginator = Paginator(entries, 10)
-	
-	#pagination
 	try:
 		page = int(request.GET.get('page', '1'))
 	except ValueError:
@@ -30,27 +33,6 @@ def index(request):
 	except (EmptyPage, InvalidPage):
 		entries = paginator.page(paginator.num_pages)
 	return render_to_response('ticker/index.html', {'entries': entries})
-
-
-def intern(request, pin):
-	if Config.objects.get(key='pin').value == pin:
-		# initial 
-		entries = Entry.objects.all().order_by('-published')
-		paginator = Paginator(entries, 10)
-	
-		#pagination
-		try:
-			page = int(request.GET.get('page', '1'))
-		except ValueError:
-			page = 1
-	
-		try:
-			entries = paginator.page(page)
-		except (EmptyPage, InvalidPage):
-			entries = paginator.page(paginator.num_pages)
-		return render_to_response('ticker/intern.html', {'entries': entries})
-	else:
-		return redirect(index)
 
 def login(request):
 	if request.method == 'POST':
