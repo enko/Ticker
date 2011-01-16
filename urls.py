@@ -35,5 +35,6 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
     url(r'^api/entries/(?P<id>[^/]+)/$', blogpost_resource), 
+    url(r'^api/entries/$', blogpost_resource), 
     # url(r'^other/(?P<username>[^/]+)/(?P<data>.+)/$', arbitrary_resource), 
 )
