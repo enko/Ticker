@@ -11,3 +11,4 @@ TODO
 2. views for html, mobile html and wap browsers
 3. clickable entries
 4. clean css ans js for a modern look
+5. Implement a clean API, we might to use PISTON for this (https://bitbucket.org/jespern/django-piston/wiki/Home)
