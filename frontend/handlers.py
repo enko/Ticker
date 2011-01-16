@@ -25,6 +25,7 @@ class EntryHandler(BaseHandler):
 
     @throttle(5, 10*60) # allow 5 times in 10 minutes
     def update(self, request, id):
+        // TODO: if id is 0, create a new entry
         entries = Entry.objects.get(id=id)
 
         entries.title = request.PUT.get('title')
