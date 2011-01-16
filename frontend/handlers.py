@@ -16,12 +16,12 @@ class EntryHandler(BaseHandler):
         return len(entry.content)
 
     def read(self, request, id):
-        entries = Entry.objects.get(id=id)
-        return entries
-
-    def read(self, request):
-        entries = Entry.objects.all().order_by('-published')
-        return entries
+        if (id == '0'):
+            entries = Entry.objects.all()
+            return entries
+        else:
+            entries = Entry.objects.get(id=id)
+            return entries
 
     @throttle(5, 10*60) # allow 5 times in 10 minutes
     def update(self, request, id):
