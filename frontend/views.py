@@ -105,6 +105,9 @@ def manage(request):
 			if (request.GET['function'] == 'get_count'):
 				count = len(Entry.objects.all())
 				return HttpResponse(count, mimetype="text/plain")
+			elif (request.GET['function'] == 'get_pin'):
+				pin = Config.objects.get(key='pin')
+				return HttpResponse(pin.value, mimetype="text/plain")
 			else:
 				not_defined_message = "This plain function is not defined!"
 				return HttpResponse(not_defined_message, mimetype="text/plain")
