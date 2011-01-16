@@ -1,5 +1,16 @@
 # coding=utf-8
 from django.conf.urls.defaults import *
+from piston.resource import Resource
+from piston.authentication import HttpBasicAuthentication
+
+from frontend.handlers import EntryHandler, ArbitraryDataHandler
+
+auth = HttpBasicAuthentication(realm="Ticker API")
+ad = { 'authentication': auth }
+
+#blogpost_resource = Resource(handler=EntryHandler, **ad)
+blogpost_resource = Resource(handler=EntryHandler)
+arbitrary_resource = Resource(handler=ArbitraryDataHandler, **ad)
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -20,4 +31,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns('',
+    url(r'^api/entries/(?P<id>[^/]+)/$', blogpost_resource), 
+    # url(r'^other/(?P<username>[^/]+)/(?P<data>.+)/$', arbitrary_resource), 
 )
