@@ -27,7 +27,7 @@ function getEntries(action) {
 			$(entry).append('<span class="entry-text">' + text + '</span>');
 			$(entry).append('<span class="entry-status">' + status +'</span>');
 			$(entry).append('<span class="entry-published">' + published + '</span>');
-			$(entry).append('<span class="entry-delete"></span>');
+			$(entry).append('<span class="entry-delete" onclick="deleteEntry('+ id +')">Löschen</span>');
 		});
 		
   	});
@@ -66,9 +66,9 @@ function submitNewEntry() {
 		return false;
 		
 	if ( $('.is-public:checkbox:checked').val() == 'on' )
-		var isPublic = parseInt(1);
+		var isPublic = 1;
 	else 
-		var isPublic = parseInt(0);
+		var isPublic = 0;
 	
 	$.ajax({
 		type: "POST",
@@ -76,6 +76,7 @@ function submitNewEntry() {
 		data: { "entry-text" : text, "entry-is-public" : isPublic, "submit" : "submit", "new_entry" : "new_entry" },
 		success: function() {
 			$('.new-entry').val('Neuen Eintrag schreiben...');
+			showMessageBox('Eintrag gespeichert!');
 			getEntries('reload');
 		}
 	});
@@ -88,25 +89,30 @@ function submitNewPin() {
 		type: "POST",
 		data: { "new_pin" : true, "submit" : true, "pin-value" : pin },
 		success: function() {
-			$('.message-block').html('Pin geändert!');
+			showMessageBox('Pin geändert!');
 			setPin();
 		}
 	})
 }
 
 	
-	function deleteEntry(id) {
-		$.ajax({
-			type: "POST",
-			data: { "deleteEntry" : id },
-			success: function() {
-				var newEntryCount = parseInt($('.entry-counter').html()) - 1;
-				console.log(parseInt($('.entry-counter').html()));
-				console.log(newEntryCount);
-				setCounter(newEntryCount);
-			}
-		});
-		
-		var box = "div.entry-"+id;
-		$(box).hide('slow');
-	}
+function deleteEntry(id) {
+	$.ajax({
+		type: "POST",
+		data: { "del_entry" : true, "submit" : true, "entry-id" : id },
+		success: function() {
+			showMessageBox('Eintrag gelöscht!');
+			getEntries('reload');
+			
+		}
+	});
+}
+
+function showMessageBox(message) {
+	$('.message-block').html(message).show('fast');
+	setTimeout("clearMessageBox()", 2000);
+}
+
+function clearMessageBox() {
+	$('.message-block').hide('slow').empty();
+}
