@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	getEntries();
-	
+	setPin();
 });
 
 function getEntries(action) {
@@ -52,6 +52,12 @@ function setCounter(action) {
 	});
 }
 
+function setPin(action) {
+	$.get('?format=plain&function=get_pin', function(data) {
+		$('.pin-value').val(data);
+	});
+}
+
 
 function submitNewEntry() {
 	var text = $('.new-entry').val();
@@ -74,22 +80,20 @@ function submitNewEntry() {
 		}
 	});
 }
+ 
+function submitNewPin() {
+	var pin = $('.pin-value').val();
+	
+	$.ajax({
+		type: "POST",
+		data: { "new_pin" : true, "submit" : true, "pin-value" : pin },
+		success: function() {
+			$('.message-block').html('Pin geändert!');
+			setPin();
+		}
+	})
+}
 
-/*
- * OLD STUFF
- *
- */
-
-	function submitNewPin() {
-		var newPin = $("#newPin").val();
-		$.ajax({
-			type: "POST",
-			data: { "pin" : newPin },
-			success: function() {
-				alert("Pin geändert!");
-			}
-		});
-	}
 	
 	function deleteEntry(id) {
 		$.ajax({
@@ -105,31 +109,4 @@ function submitNewEntry() {
 		
 		var box = "div.entry-"+id;
 		$(box).hide('slow');
-	}
-	
-	function refreshEntries() {
-		$.getJSON('?refresh.json', function(data) {
-			//console.log(data.length);
-			var text = data[0].fields.text;
-			var isPublic = data[0].fields.isPublic;
-			if (isPublic == true) {
-				var status = 'Öffentlich';
-			} else {
-				var status = 'Intern';
-			}
-			var published = data[0].fields.published;
-			var pk = data[0].pk;
-			
-			if (pk > 1) {
-				var pkBefore = data[1].pk;
-				$('<div class="entry-box box entry-'+ pk +'">').insertBefore('.entry-'+pkBefore);
-			} else {
-				$('.entries-box').append('<div class="entry-box box entry-'+ pk +'">');
-			}
-			
-			var container = '.entry-'+pk;	
-			$(container).append('<div class="entry-text">'+text+'<img src="../media/img/deleteButton.png" title="Diesen Eintrag löschen" class="deleteButton" onClick="deleteEntry('+pk+')"/></div>');
-			$(container).append('<div class="entry-status">'+status+'</div>');
-			$(container).append('<div class="entry-date">'+published+'</div>');
-		});
 	}
