@@ -12,14 +12,15 @@ from Ticker.frontend.models import *
 from datetime import datetime
 from django.core import serializers
 from django.utils.html import escape
+import json
 
 
 def index(request, pin=None):
-	if pin == None:
+	if (pin == None):
 		entries = Entry.objects.filter(isPublic=1).order_by('-published')
-	elif pin == Config.objects.get(key='pin').value: 
+	elif (pin == Config.objects.get(key='pin').value): 
 		entries = Entry.objects.all().order_by('-published')
-	elif pin != Config.objects.get(key='pin').value:
+	elif (pin != Config.objects.get(key='pin').value):
 		return redirect(index)
 		
 	paginator = Paginator(entries, 10)
@@ -63,36 +64,52 @@ def logout(request):
 
 @login_required(redirect_field_name='redirect')
 def manage(request):
-	entries = Entry.objects.all().order_by('-published')
-	pin = Config.objects.get(key='pin')
-	if request.method == 'POST':
-		if 'newEntry' in request.POST:
-			if len(request.POST["newEntry"]) > 140:
-				return HttpResponse("Message too long!", mimetype="text/plain")
-			else:
-				entryText = escape(request.POST["newEntry"])
-				publishTime = datetime.now()
-				status = int(request.POST["isPublic"])
-				newEntry = Entry(text=entryText, published=publishTime, isPublic=status)
-				newEntry.save()
-		elif 'pin' in request.POST:
-			if len(request.POST["pin"]) < 6:
-				return HttpResponse("At least six chars!", mimetype="text/plain")
-			elif request.POST["pin"] == pin.value:
-				return HttpResponse("This is the same pin, isn't it?", mimetype="text/plain")
-			else:
-				pin.value = request.POST["pin"]
-				pin.save()
-		elif 'deleteEntry' in request.POST:
-			target = request.POST['deleteEntry']
-			Entry.objects.filter(id=target).delete()
-	if request.method == 'GET':
-		if 'entries.json' in request.GET:
-			newEntry = Entry.objects.all().order_by('-published')
+	if (request.method == 'POST'):
+		if ('submit' in request.POST):
+			if ('new_entry' in request.POST):
+				entry_text = escape(request.POST["entry-text"])
+				entry_published = datetime.now()
+				entry_isPublic = int(request.POST["entry-is-public"])
+				new_entry = Entry(text=entry_text, published=entry_published, isPublic=entry_isPublic)
+				new_entry.save()
+			elif ('new_pin' in request.POST):
+				new_pin = Config.objects.get(key='pin')
+				new_pin.value = request.POST['pin-value']
+				new_pin.save()
+			elif ('del_entry' in request.POST):
+				entry_id = request.POST['entry-id']
+				Entry.objects.filter(id=entry_id).delete()
+
+	if (request.method == 'GET'):
+		if ('format' in request.GET):
+			format = request.GET['format']
+		else:
+			format = 'json'
+			
+		if ('function' in request.GET) and (format == 'json'):
 			json_serializer = serializers.get_serializer("json")()
-			return HttpResponse(json_serializer.serialize(newEntry, ensure_ascii=False))
-		elif 'refresh.json' in request.GET:
-			newEntry = Entry.objects.all().order_by('-published')[:2]
-			json_serializer = serializers.get_serializer("json")()
-			return HttpResponse(json_serializer.serialize(newEntry, ensure_ascii=False))
-	return render_to_response('ticker/manage.html', {'entries': entries, 'pin': pin})
+			if (request.GET['function'] == 'get_all_entries'):
+				# ?format=json&function=get_all_entries
+				all_entries = Entry.objects.all().order_by('-published')
+				return HttpResponse(json_serializer.serialize(all_entries, ensure_ascii=False), mimetype="application/json")
+			elif (request.GET['function'] == 'get_latest_entry'):
+				latest_entry = Entry.objects.all().order_by('-published')[:1]
+				return HttpResponse(json_serializer.serialize(latest_entry, ensure_ascii=False), mimetype="application/json")
+			elif (request.GET['function'] == 'get_pin'):
+				pin = Config.objects.filter(key='pin')
+				return HttpResponse(json_serializer.serialize(pin, ensure_ascii=False), mimetype="application/json")
+			else:
+				not_defined_message = "This json function is not defined!"
+				return HttpResponse(not_defined_message, mimetype="text/plain")
+		elif ('function' in request.GET) and (format == 'plain'):
+			if (request.GET['function'] == 'get_count'):
+				count = len(Entry.objects.all())
+				return HttpResponse(count, mimetype="text/plain")
+			elif (request.GET['function'] == 'get_pin'):
+				pin = Config.objects.get(key='pin')
+				return HttpResponse(pin.value, mimetype="text/plain")
+			else:
+				not_defined_message = "This plain function is not defined!"
+				return HttpResponse(not_defined_message, mimetype="text/plain")
+	
+	return render_to_response('manage/index.html')
