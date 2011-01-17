@@ -3,7 +3,8 @@ body {
  padding: 10px; 
  font: 16px/20px 'Cuprum';
  color: #EEEEEE;
- margin: 0;
+ margin: 0px;
+ text-align: center;
 }
 
 div {
@@ -17,10 +18,11 @@ a, a:link {
 
 .wrapper {
  position: relative;
+ vertical-align: middle;
  width: 850px;
  height: 100%;
- float: left;
- margin: 0 auto;
+ margin: 0px auto;
+ text-align: left;
 }
 
 .col {
@@ -61,6 +63,11 @@ a, a:link {
 
 .block {
  margin: 0 0 50px 0;
+}
+
+.box {
+ margin: 5px 0;
+ padding: 0 10px;
 }
 
 .new-entry, .submit-entry {
