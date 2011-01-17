@@ -10,6 +10,11 @@ div {
  position: relative;
 }
 
+a, a:link {
+ color: #FFFFFF;
+ text-decoration: none;
+}
+
 .wrapper {
  position: relative;
  width: 850px;
@@ -29,7 +34,7 @@ div {
  -webkit-border-radius: 8px;
 }
 
-.col-head {
+.col-head, .col-message {
  width: 830px;
  text-align: center;
 }
@@ -44,9 +49,43 @@ div {
  -webkit-text-shadow: 1px 1px 1px #FFFFFF;
 }
 
+.col-message {
+ display: none;
+ opacity: 0;
+}
+
 .col-left {
  width: 500px;
  margin: 10px 10px 0 0;
+}
+
+.block {
+ margin: 0 0 50px 0;
+}
+
+.new-entry, .submit-entry {
+ padding: 8px;
+ margin: 0;
+ color: #FFFFFF;
+ font: 16px/20px 'Cuprum';
+ border: 0;
+}
+
+.new-entry {
+ width: 80%;
+ margin-right: 1px;
+ background: rgb(0, 0, 0);
+ border-radius: 6px 0px 0px 6px;
+ -moz-border-radius: 6px 0px 0px 6px;
+ -webkit-border-radius: 6px 0px 0px 6px;
+}
+
+.submit-entry {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 0px 6px 6px 0px;
+ -moz-border-radius: 0px 6px 6px 0px;
+ -webkit-border-radius: 0px 6px 6px 0px;
 }
 
 .reload-entries {
@@ -113,6 +152,7 @@ div {
 
 .entry-text {
  display: block;
+ padding: 0 40px 0 0;
 }
 
 .entry-status, .entry-published {
@@ -149,4 +189,29 @@ div {
  border-radius: 12px;
  -moz-border-radius: 12px;
  -webkit-border-radius: 12px;
+}
+
+.pin-value, .submit-pin {
+ padding: 8px;
+ margin: 0;
+ color: #FFFFFF;
+ font: 16px/20px 'Cuprum';
+ border: 0;
+}
+
+.pin-value {
+ width: 60%;
+ margin-right: 1px;
+ background: rgb(0, 0, 0);
+ border-radius: 6px 0px 0px 6px;
+ -moz-border-radius: 6px 0px 0px 6px;
+ -webkit-border-radius: 6px 0px 0px 6px;
+}
+
+.submit-pin {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 0px 6px 6px 0px;
+ -moz-border-radius: 0px 6px 6px 0px;
+ -webkit-border-radius: 0px 6px 6px 0px;
 }
