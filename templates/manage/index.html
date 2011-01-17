@@ -1,0 +1,54 @@
+{% extends "manage/base.html" %}
+
+{% block head %}
+<script type="text/javascript" src="../media/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../media/js/common.js"></script>
+{% endblock %}
+
+{% block col-head %}
+<h1>Ticker Management</h1>
+{% endblock %}
+
+{% block col-message %}
+
+{% endblock %}
+
+{% block col-left %}
+<div class="block input-block">
+ <h2>Eintrag schreiben</h2>
+ <input tabindex="1" onblur="if (this.value == '') {this.value = 'Neuen Eintrag schreiben...';}" onfocus="if (this.value == 'Neuen Eintrag schreiben...') {this.value = '';}" type="text" class="new-entry" value="Neuen Eintrag schreiben..." /><input tabindex="3" type="button" class="submit-entry" name="submit-entry" value="Senden" onClick="submitNewEntry()" />
+ <br />
+ <input tabindex="2" type="checkbox" name="is-public" class="is-public" /><label for="is-public">Öffentlicher Eintrag</label>
+ <span class="char-counter"></span>
+</div>
+<div class="block entry-block">
+ <h2>Einträge verwalten</h2>
+ <span class="reload-entries" onclick="getEntries()">Reload</span>
+ <span class="loader"><img src="../media/img/ajax-loader.gif" />Einträge werden geladen...</span>
+ <ul class="list entry-list">
+ <!-- 
+  <li class="entry entry-1">Eintrag...<span class="published">...</span><span class="delete"></span></li>
+ -->
+ </ul>
+</div>
+{% endblock %}
+
+{% block col-right %}
+<div class="block entry-counter-block" style="opacity:0;">
+
+</div>
+<div class="block pin-block">
+ <h2>Pin ändern</h2>
+ <input type="text" class="pin-value" /><input type="button" class="submit-pin" onclick="submitNewPin()" value="Pin ändern" />
+</div>
+<div class="block help-block">
+ <h2>Infos</h2>
+ <!-- Shortcuts, helpful writing tips, ... -->
+</div>
+
+<div class="block copy-block">
+ <h2>Contribute</h2>
+ <p>Source Code: <a href="https://github.com/0x46616c6b/Ticker">Project Page (GitHub)</a></p>
+ <p>Proudly made with the Django Webframework</p>
+</div>
+{% endblock %}
