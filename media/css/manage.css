@@ -1,0 +1,152 @@
+body { 
+ background: url('../../media/img/pattern_100.gif') #484534;
+ padding: 10px; 
+ font: 16px/20px 'Cuprum';
+ color: #EEEEEE;
+ margin: 0;
+}
+
+div {
+ position: relative;
+}
+
+.wrapper {
+ position: relative;
+ width: 850px;
+ height: 100%;
+ float: left;
+ margin: 0 auto;
+}
+
+.col {
+ float: left;
+ padding: 10px;
+ margin: 10px 0 0 0;
+ background: rgb(53, 53, 53); /* fallback */
+ background: rgba(53, 53, 53, 0.5);
+ border-radius: 8px;
+ -moz-border-radius: 8px;
+ -webkit-border-radius: 8px;
+}
+
+.col-head {
+ width: 830px;
+ text-align: center;
+}
+
+.col-head h1 {
+ margin: 10px 0;
+ font: 38px/42px 'Covered By Your Grace';
+ color: #000;
+ letter-spacing: 1px;
+ text-shadow: 1px 1px 1px #FFFFFF;
+ -moz-text-shadow: 1px 1px 1px #FFFFFF;
+ -webkit-text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.col-left {
+ width: 500px;
+ margin: 10px 10px 0 0;
+}
+
+.reload-entries {
+ position: absolute;
+ right: 5px;
+ top: -5px;
+ cursor: pointer;
+ padding: 5px 10px;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 6px;
+ -moz-border-radius: 6px;
+ -webkit-border-radius: 6px;
+}
+
+.reload-entries:hover {
+ font-style: italic;
+}
+
+.loader {
+ display: block;
+ text-align: center;
+ background: #333333;
+ margin: 10px 50px;
+ padding: 10px;
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
+
+.loader img {
+ margin: -2px 4px;
+}
+
+.entry-list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+.entry {
+ position: relative;
+ padding: 10px;
+ margin: 3px 0;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
+
+.entry:hover {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 1);
+}
+
+.public {
+ border: 1px solid rgb(10, 130, 0);
+}
+
+.private {
+ border: 1px solid rgb(130, 0, 40);
+}
+
+.entry-text {
+ display: block;
+}
+
+.entry-status, .entry-published {
+ font: 11px/13px 'Cuprum';
+}
+
+.entry-status {
+ float: right;
+}
+
+.entry-delete {
+ position: absolute;
+ right: 10px;
+ top: 8px;
+ font: 11px/13px 'Cuprum';
+ cursor: pointer;
+ color: rgb(130, 0, 40);
+}
+
+
+/* RIGHT */
+
+.col-right {
+ width: 300px;
+}
+
+.entry-counter-block {
+ display: block;
+ height: 20px;
+ text-align: center;
+ padding: 10px;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
