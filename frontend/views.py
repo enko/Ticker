@@ -12,7 +12,6 @@ from Ticker.frontend.models import *
 from datetime import datetime
 from django.core import serializers
 from django.utils.html import escape
-import json
 
 
 def index(request, pin=None):
@@ -33,7 +32,13 @@ def index(request, pin=None):
 		entries = paginator.page(page)
 	except (EmptyPage, InvalidPage):
 		entries = paginator.page(paginator.num_pages)
-	return render_to_response('ticker/index.html', {'entries': entries})
+	
+	if (request.browser_type == 'full'):
+		return render_to_response('index.html', { 'entries': entries })
+	elif (request.browser_type == 'mobile'):
+		return render_to_response('mobile.html', { 'entries': entries })
+	elif (request.browser_type == 'wap'):
+		return render_to_response('index.wml', { 'entries': entries })
 
 def login(request):
 	if request.method == 'POST':
