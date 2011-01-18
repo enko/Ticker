@@ -61,7 +61,7 @@ def login(request):
 			redirect = request.GET['redirect']
 		else:
 			redirect = '/'
-		return render_to_response('ticker/login.html', {'form': form, 'redirect': redirect})
+		return render_to_response('accounts/login.html', {'form': form, 'redirect': redirect})
 
 def logout(request):
 	auth_logout(request)

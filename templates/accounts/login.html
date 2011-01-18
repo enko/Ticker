@@ -1,0 +1,26 @@
+{% extends "accounts/base.html" %}
+
+{% block col-head %}
+<div class="box box-head">
+ <h1>Anmeldung</h1>
+</div>
+{% endblock %}
+
+{% block col-login %}
+<div class="box login-box">
+ <form method="post" action="{% url Ticker.frontend.views.login %}">
+  <table>
+   <tr>
+    <td class="input-label">{{ form.username.label_tag }}</td>
+    <td class="input-field">{{ form.username }}</td>
+   </tr>
+   <tr>
+    <td class="input-label">{{ form.password.label_tag }}</td>
+    <td class="input-field">{{ form.password }}</td>
+   </tr>
+  </table>
+  <input type="hidden" name="redirect" value="{{ redirect }}" />
+  <input type="submit" class="submit-login" value="login" />
+ </form>
+</div>
+{% endblock %}

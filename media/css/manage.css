@@ -19,10 +19,17 @@ a, a:link {
 .wrapper {
  position: relative;
  vertical-align: middle;
- width: 850px;
  height: 100%;
  margin: 0px auto;
  text-align: left;
+}
+
+.manage .wrapper {
+ width: 850px;
+}
+
+.login .wrapper {
+ width: 400px;
 }
 
 .col {
@@ -37,8 +44,19 @@ a, a:link {
 }
 
 .col-head, .col-message {
- width: 830px;
  text-align: center;
+}
+
+.manage .col-head, .manage .col-message {
+ width: 830px;
+}
+
+.login .col-head {
+ width: 400px;
+}
+
+.login .col-login {
+ width: 400px;
 }
 
 .col-head h1 {
@@ -227,4 +245,24 @@ a, a:link {
  border-radius: 0px 6px 6px 0px;
  -moz-border-radius: 0px 6px 6px 0px;
  -webkit-border-radius: 0px 6px 6px 0px;
+}
+
+.login .input-label, .login .input-field {
+ padding: 5px;
+}
+
+.login input {
+ color: #FFFFFF;
+ padding: 4px;
+ border: 2px solid #000000;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.4);
+ border-radius: 4px;
+ -moz-border-radius: 4px;
+ -webkit-border-radius: 4px;
+}
+
+.login .submit-login {
+ padding: 4px 8px;
+ font-size: 14px;
 }
