@@ -52,8 +52,9 @@ def login(request):
 			else:
 				return HttpResponse('Account gesperrt.')
 		else:
-			#Hier muesste noch eine Message rein, damit klar ist das das Login schief ging.
-			return redirect(login)
+			redirect = request.POST['redirect']
+			form = AuthenticationForm()
+			return render_to_response('accounts/login.html', {'form': form, 'redirect': redirect, 'error' : 'login failed'})
 		return render_to_response('ticker/profile.html')
 	else:
 		form = AuthenticationForm()

@@ -8,6 +8,11 @@
 
 {% block col-login %}
 <div class="box login-box">
+ {% if error %}
+ <div class="error">
+   {{ error }}
+ </div>
+ {% endif %}
  <form method="post" action="{% url Ticker.frontend.views.login %}">
   <table>
    <tr>
