@@ -1,12 +1,11 @@
 $(document).ready(function() {
 	getEntries();
-	setTimeout("setCounter()", 1000);
 	setPin();
 });
 
-function getEntries(action) {
-	if (action == 'reload')
-		$('.entry-list').empty();
+function getEntries() {
+	showLoader();
+	$('.entry-list').empty();
 		
 	$.getJSON('?format=json&function=get_all_entries', function(data) {
 		$(data).each(function(i,entry) {
@@ -34,6 +33,7 @@ function getEntries(action) {
   	});
 	
 	hideLoader();
+	updateCounter();
 }
 
 function updateEntries() {
@@ -116,8 +116,35 @@ function submitNewEntry() {
 	});
 }
 
+function showCharCounter() {
+	$('.char-counter').animate({ 'opacity' : 1 }, 'fast');
+	$('.new-entry').each(function() {
+		var max_length = 140;
+		var length = $('.new-entry').val().length;
+		$('.char-counter').html(max_length - length);
+		$('.char-counter').css({'color' : '#118f40' });
+		$('.new-entry').keyup(function() {
+			var new_length = $('.new-entry').val().length;
+			$('.char-counter').html(max_length - new_length);
+			if ( new_length < 71 ) {
+				$('.char-counter').css({'color' : '#118f40' });
+			} else if ( (new_length > 71) && (new_length < 141) ) {
+				$('.char-counter').css({'color' : '#ffec00' });
+			} else {
+				$('.char-counter').css({'color' : '#c1001f' });
+			}
+		});
+	});
+}
+
+function hideCharCounter() {
+	$('.char-counter').animate({ 'opacity' : 0 }, 'fast');
+}
+
 function resetEntryInput() {
 	$('.new-entry').val('Neuen Eintrag schreiben...');
+	$('.is-public').attr('checked', false);
+	hideCharCounter();
 }
  
 function submitNewPin() {
@@ -132,7 +159,6 @@ function submitNewPin() {
 		}
 	})
 }
-
 	
 function deleteEntry(id) {
 	$.ajax({
@@ -148,19 +174,24 @@ function deleteEntry(id) {
 	updateCounter();
 }
 
+function showLoader() {
+	$('.loader').show();
+}
+
 function hideLoader() {
 	$('.loader').hide('fast');
 }
 
 function showMessageBox(message, type) {
 	if (type == 'error')
-		$('.message-block').html(message).show('fast').css({ "color" : "#FF0000" });
+		$('.col-message').html(message).css({ "display" : "block" }).animate({ "opacity" : 1 }, "slow").css({ "color" : "#FF0000" });
 	else
-		$('.message-block').html(message).show('fast');
+		$('.col-message').html(message).css({ "display" : "block" }).animate({ "opacity" : 1 }, "slow");
 		
 	setTimeout("clearMessageBox()", 4000);
 }
 
 function clearMessageBox() {
-	$('.message-block').hide('slow').empty();
+	$('.col-message').fadeOut();
+	$('.col-message').empty();
 }

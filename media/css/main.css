@@ -1,0 +1,36 @@
+body {
+ background: #000000;
+ color: #FFFFFF;
+ font: 14px/18px Sans serif, 'Arial';
+ text-align: center;
+}
+
+.wrapper {
+ width: 500px;
+ margin: 0 auto;
+ text-align: left;
+}
+
+.list {
+ list-style: none;
+}
+
+.entry {
+ padding: 20px;
+ margin: 5px 0;;
+ background: rgb(53, 53, 53);
+ background: rgba(53, 53, 53, .5);
+ border-radius: 10px;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 8px;
+}
+
+.entry-text {
+ display: block;
+ margin: 0 0 10px 0;
+}
+
+.entry-published {
+ font-size: 11px;
+ font-style: italic;
+}

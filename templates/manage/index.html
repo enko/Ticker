@@ -19,7 +19,7 @@
 <div class="block input-block">
  <h2>Eintrag schreiben</h2>
  <div class="box entry-input-box">
-  <input tabindex="1" onblur="if (this.value == '') {this.value = 'Neuen Eintrag schreiben...';}" onfocus="if (this.value == 'Neuen Eintrag schreiben...') {this.value = '';}" type="text" class="new-entry" value="Neuen Eintrag schreiben..." /><input tabindex="3" type="button" class="submit-entry" name="submit-entry" value="Senden" onClick="submitNewEntry()" />
+  <input tabindex="1" onblur="if (this.value == '') {this.value = 'Neuen Eintrag schreiben...'; hideCharCounter(); }" onfocus="if (this.value == 'Neuen Eintrag schreiben...') {this.value = ''; showCharCounter(); }" type="text" class="new-entry" value="Neuen Eintrag schreiben..." /><input tabindex="3" type="button" class="submit-entry" name="submit-entry" value="Senden" onClick="submitNewEntry()" />
  </div>
  <div class="box is-public-box">
   <input tabindex="2" type="checkbox" name="is-public" class="is-public" /><label for="is-public">Öffentlicher Eintrag</label>

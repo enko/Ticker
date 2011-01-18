@@ -95,6 +95,12 @@ a, a:link {
  -webkit-border-radius: 0px 6px 6px 0px;
 }
 
+.char-counter {
+ position: absolute;
+ right: 25px;
+ bottom: 0;
+}
+
 .reload-entries {
  position: absolute;
  right: 5px;

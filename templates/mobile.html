@@ -10,9 +10,8 @@
   {% if entries %}
   {% for entry in entries.object_list %}
   <li class="entry entry-{{ entry.pk }}">
-   <span class="entry-text">
-    {{ entry.text }}
-   </span>
+   <span class="entry-text">{{ entry.text }}</span>
+   <span class="entry-published">{{ entry.published }}</span>
   </li>
   {% endfor %}
   {% endif %}
