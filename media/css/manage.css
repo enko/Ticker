@@ -1,0 +1,224 @@
+body { 
+ background: url('../../media/img/pattern_100.gif') #484534;
+ padding: 10px; 
+ font: 16px/20px 'Cuprum';
+ color: #EEEEEE;
+ margin: 0px;
+ text-align: center;
+}
+
+div {
+ position: relative;
+}
+
+a, a:link {
+ color: #FFFFFF;
+ text-decoration: none;
+}
+
+.wrapper {
+ position: relative;
+ vertical-align: middle;
+ width: 850px;
+ height: 100%;
+ margin: 0px auto;
+ text-align: left;
+}
+
+.col {
+ float: left;
+ padding: 10px;
+ margin: 10px 0 0 0;
+ background: rgb(53, 53, 53); /* fallback */
+ background: rgba(53, 53, 53, 0.5);
+ border-radius: 8px;
+ -moz-border-radius: 8px;
+ -webkit-border-radius: 8px;
+}
+
+.col-head, .col-message {
+ width: 830px;
+ text-align: center;
+}
+
+.col-head h1 {
+ margin: 10px 0;
+ font: 38px/42px 'Covered By Your Grace';
+ color: #000;
+ letter-spacing: 1px;
+ text-shadow: 1px 1px 1px #FFFFFF;
+ -moz-text-shadow: 1px 1px 1px #FFFFFF;
+ -webkit-text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.col-message {
+ display: none;
+ opacity: 0;
+}
+
+.col-left {
+ width: 500px;
+ margin: 10px 10px 0 0;
+}
+
+.block {
+ margin: 0 0 50px 0;
+}
+
+.box {
+ margin: 5px 0;
+ padding: 0 10px;
+}
+
+.new-entry, .submit-entry {
+ padding: 8px;
+ margin: 0;
+ color: #FFFFFF;
+ font: 16px/20px 'Cuprum';
+ border: 0;
+}
+
+.new-entry {
+ width: 80%;
+ margin-right: 1px;
+ background: rgb(0, 0, 0);
+ border-radius: 6px 0px 0px 6px;
+ -moz-border-radius: 6px 0px 0px 6px;
+ -webkit-border-radius: 6px 0px 0px 6px;
+}
+
+.submit-entry {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 0px 6px 6px 0px;
+ -moz-border-radius: 0px 6px 6px 0px;
+ -webkit-border-radius: 0px 6px 6px 0px;
+}
+
+.reload-entries {
+ position: absolute;
+ right: 5px;
+ top: -5px;
+ cursor: pointer;
+ padding: 5px 10px;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 6px;
+ -moz-border-radius: 6px;
+ -webkit-border-radius: 6px;
+}
+
+.reload-entries:hover {
+ font-style: italic;
+}
+
+.loader {
+ display: block;
+ text-align: center;
+ background: #333333;
+ margin: 10px 50px;
+ padding: 10px;
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
+
+.loader img {
+ margin: -2px 4px;
+}
+
+.entry-list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+.entry {
+ position: relative;
+ padding: 10px;
+ margin: 3px 0;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
+
+.entry:hover {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 1);
+}
+
+.public {
+ border: 1px solid rgb(10, 130, 0);
+}
+
+.private {
+ border: 1px solid rgb(130, 0, 40);
+}
+
+.entry-text {
+ display: block;
+ padding: 0 40px 0 0;
+}
+
+.entry-status, .entry-published {
+ font: 11px/13px 'Cuprum';
+}
+
+.entry-status {
+ float: right;
+}
+
+.entry-delete {
+ position: absolute;
+ right: 10px;
+ top: 8px;
+ font: 11px/13px 'Cuprum';
+ cursor: pointer;
+ color: rgb(130, 0, 40);
+}
+
+
+/* RIGHT */
+
+.col-right {
+ width: 300px;
+}
+
+.entry-counter-block {
+ display: block;
+ height: 20px;
+ text-align: center;
+ padding: 10px;
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 12px;
+ -moz-border-radius: 12px;
+ -webkit-border-radius: 12px;
+}
+
+.pin-value, .submit-pin {
+ padding: 8px;
+ margin: 0;
+ color: #FFFFFF;
+ font: 16px/20px 'Cuprum';
+ border: 0;
+}
+
+.pin-value {
+ width: 60%;
+ margin-right: 1px;
+ background: rgb(0, 0, 0);
+ border-radius: 6px 0px 0px 6px;
+ -moz-border-radius: 6px 0px 0px 6px;
+ -webkit-border-radius: 6px 0px 0px 6px;
+}
+
+.submit-pin {
+ background: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.5);
+ border-radius: 0px 6px 6px 0px;
+ -moz-border-radius: 0px 6px 6px 0px;
+ -webkit-border-radius: 0px 6px 6px 0px;
+}

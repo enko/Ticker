@@ -1,0 +1,13 @@
+{% extends "base.wml" %}
+
+{% block main %}
+
+  {% if entries %}
+  {% for entry in entries.object_list %}
+  <card id="entry-{{ entry.pk }}">
+   <p>{{ entry.text }}</p>
+  </card>
+  {% endfor %}
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/media/css/main.css" />
+{% endblock %}
+
+{% block col-main %}
+<div class="box entry-box">
+ <ul class="list entry-list">
+  {% if entries %}
+  {% for entry in entries.object_list %}
+  <li class="entry entry-{{ entry.pk }}">
+   <span class="entry-text">
+    {{ entry.text }}
+   </span>
+  </li>
+  {% endfor %}
+  {% endif %}
+ </ul>
+</div>
+<div class="box pagination-box">
+{% if entries.has_previous %}
+ <a href="?page={{ entries.previous_page_number }}">Aktuellere Meldungen</a>
+{% endif %}
+{% if entries.has_next %}
+ <a href="?page={{ entries.next_page_number }}">Ältere Meldungen</a>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <title>{% block title %}Demoticker{% endblock %}</title>
+ <link rel="stylesheet" href="../media/css/manage.css" />
+ <link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ {% block head %}{% endblock %}
+</head>
+<body class="manage col-2-layout">
+ <div class="wrapper">
+  <div class="col col-head">
+   {% block col-head %}{% endblock %}
+  </div>
+  <div class="col col-message">
+   {% block col-message %}{% endblock %}
+  </div>
+  <div class="col col-left">
+   {% block col-left %}{% endblock %}
+  </div>
+  <div class="col col-right">
+   {% block col-right %}{% endblock %}
+  </div>
+ </div>
+</body>
+</html>
